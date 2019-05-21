@@ -1,0 +1,37 @@
+{
+  "name": "scraper",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack -w",
+    "webpack:production": "NODE_ENV=production webpack",
+    "server": "webpack-dev-server",
+    "node": "node server/server.js",
+    "node:dev": "nodemon -w ./server/ server/server.js"
+  },
+  "keywords": [
+    "BuckleScript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@glennsl/bs-json": "^3.0.0",
+    "axios": "^0.18.0",
+    "bs-fetch": "^0.3.1",
+    "cheerio": "^1.0.0-rc.3",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "reason-react": ">=0.7.0",
+    "river-flow": "git+https://git@github.com/LastShadowPL/river-flow.git"
+  },
+  "devDependencies": {
+    "bs-platform": "^5.0.4",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8"
+  }
+}
