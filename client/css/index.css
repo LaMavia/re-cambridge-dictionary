@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 :root {
-  --form-h: 10vh;
-  --form-thin-w: calc(var(--form-h) * 3 / 5);
+  --form-h: 200px;
+  --form-thin-w: calc(var(--form-h) * 3.5 / 5);
 }
 
 .form {
@@ -9,10 +9,10 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: calc(var(--form-h) / 5);
+  padding: 30px;
   background-color: #292929;
   display: flex;
-  height: 10vh;
+  height: var(--form-h);
 }
 .form__input {
   appearance: none;
@@ -29,7 +29,7 @@
 }
 
 :root {
-  --words-padding: 3vh;
+  --words-padding: 40px;
 }
 
 .words {
@@ -46,6 +46,7 @@
   color: #535353;
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.17);
   padding: 0 var(--p);
+  margin-bottom: var(--words-padding);
 }
 .words__item__word {
   font-size: 6rem;
@@ -62,12 +63,12 @@
   margin-bottom: var(--words-padding);
 }
 .words__item__defs__item__def {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 300;
   margin-bottom: calc(var(--words-padding) / 4);
 }
 .words__item__defs__item__eg {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-style: italic;
   font-weight: 100;
 }

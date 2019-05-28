@@ -1,6 +1,6 @@
 :root {
-  --form-h: 10vh;
-  --form-thin-w: calc(var(--form-h) * 3 / 5);
+  --form-h: 200px;
+  --form-thin-w: calc(var(--form-h) * 3.5 / 5);
 }
 .form {
   position: fixed;
@@ -8,11 +8,11 @@
   left: 0;
   right: 0;
 
-  padding: calc(var(--form-h) / 5);
+  padding: 30px;
   background-color: rgb(41, 41, 41);
 
   display: flex;
-  height: 10vh;
+  height: var(--form-h);
 
   &__input {
     appearance: none;
