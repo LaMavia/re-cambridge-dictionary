@@ -1,16 +1,22 @@
 {
   "name": "scraper",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.x"
+  },
+  "main": "./server/server.js",
   "scripts": {
     "build": "bsb -make-world",
-    "start": "bsb -make-world -w",
+    "start:re": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack -w",
-    "webpack:production": "NODE_ENV=production webpack",
-    "server": "webpack-dev-server",
+    "webpack:dev": "webpack -w",
+    "webpack": "NODE_ENV=production webpack",
+    "server": "webpack-dev-server --host 0.0.0.0",
     "node": "node server/server.js",
-    "node:dev": "nodemon -w ./server/ server/server.js"
+    "node:dev": "nodemon -w ./server/ server/server.js",
+    "sass:dev": "sass --watch ./sass/index.scss client/css/index.css",
+    "dev": "concurrently -k --names \"SERVER,SASS,WEBPACK\" -c \"white,pink,blue\" \"npm run node:dev\" \"npm run sass:dev\" \"npm run server\" ","start": "node ./server/server.js"
   },
   "keywords": [
     "BuckleScript"

@@ -7,11 +7,18 @@ const path = require('path')
 const fs = require('fs')
 
 const m = new Flow()
-m.public = path.resolve(__dirname, /server/.test(__dirname) ? '../client/' : 'client/')
+m.public = path.resolve(
+  __dirname,
+  /server/.test(__dirname) ? '../client/' : 'client/'
+)
 
 m.gate(({ req, res }) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With')
+})
+const logger = initLogger('Logger', 'italic')
+m.gate(({ req }) => {
+  logger(`[${req.method}]> ${req.url} ${req.statusCode}`)
 })
 
 m.post(
@@ -23,7 +30,6 @@ m.post(
       console.dir()
       const ws = JSON.parse(Object.keys(req.body)[0]).words
       console.dir(ws, { colors: true, depth: 4 })
-      const SAP = '<//>'
       const fetcher = cp.fork('server/fetcher.js')
       fetcher.on('message', ws => {
         send(res, ws)
@@ -37,21 +43,29 @@ m.post(
     })
 )
 let indexc
-m.get('/', ({ req, res, supervisor: app }) => new Promise((fuf, rej) => {
-  if (indexc) res.write(indexc)
-  else {
-    try {
-      fs.readFile(`${app.public}/index.html`, { encoding: 'utf-8' }, (err, d) => {
-        if (err) throw new Error(`405 Server Error: ${err}`)
-        indexc = d
-        res.write(indexc)
-        fuf()
-      })
-    } catch (err) {
-      res.write(err)
-      fuf()
-    }
-  }
-}))
+m.get(
+  '/',
+  ({ req, res, supervisor: app }) =>
+    new Promise((fuf, rej) => {
+      if (indexc) res.write(indexc)
+      else {
+        try {
+          fs.readFile(
+            `${app.public}/index.html`,
+            { encoding: 'utf-8' },
+            (err, d) => {
+              if (err) throw new Error(`405 Server Error: ${err}`)
+              indexc = d
+              res.write(indexc)
+              fuf()
+            }
+          )
+        } catch (err) {
+          res.write(err)
+          fuf()
+        }
+      }
+    })
+)
 
 m.listen(8080)

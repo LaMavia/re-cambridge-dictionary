@@ -1,7 +1,15 @@
 // @ts-check
 const cheerio = require('cheerio')
 const axios = require('axios').default
-const stream = require('stream')
+
+/**
+ *
+ * @param {string} w
+ */
+const capitalize = w => {
+  let ls = w.split('')
+  return [ls[0].toUpperCase(), ...ls.slice(1)].join('')
+}
 
 const makeUrl = (word = '') =>
   `https://dictionary.cambridge.org/dictionary/english/${word.replace(
@@ -35,10 +43,19 @@ let scrape = async (_word = '', limit = 10) => {
     const hdr = $('.hw', r)
     if (i === 0) word = hdr.first().text() // r.querySelector('.hw').innerText
     let o = {
-      def: $('.def', r).text(), // r.querySelector('.def').innerText,
+      def: capitalize(
+        $('.def', r)
+          .text()
+          .split(':')[0]
+      ), // r.querySelector('.def').innerText,
     }
     const egNode = $('.eg', r) // r.querySelector('.eg')
-    if (egNode) o.eg = egNode.text() // egNode.innerText
+    if (egNode)
+      o.eg = egNode
+        .text()
+        .split('.')
+        .slice(0, 2)
+        .join('.') // egNode.innerText
     acc[i] = o
     return acc
   }, new Array(rs.length).fill(0))

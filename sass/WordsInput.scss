@@ -1,0 +1,31 @@
+:root {
+  --form-h: 10vh;
+  --form-thin-w: calc(var(--form-h) * 3 / 5);
+}
+.form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: calc(var(--form-h) / 5);
+  background-color: rgb(41, 41, 41);
+
+  display: flex;
+  height: 10vh;
+
+  &__input {
+    appearance: none;
+    border: none;
+    font-size: calc(var(--form-h) / 4.5);
+    width: calc(100% - var(--form-thin-w) - var(--form-h) / 15);
+    padding: 2%;
+
+    &--thin {
+      width: var(--form-thin-w);
+      text-align: center;
+      color: #ffffff;
+      background-color: #d0a44c;
+    }
+  }
+}

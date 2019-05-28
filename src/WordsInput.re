@@ -42,7 +42,16 @@ let make = (~onReceived) => {
       ();
     };
 
-  <form className="form" onSubmit>
+  <form
+    className="form"
+    onSubmit
+    onKeyUp={evt => {
+      if (evt |> ReactEvent.Keyboard.keyCode == 13) {
+        state |> fetchWords(onReceived);
+        ();
+      };
+      ();
+    }}>
     <input
       className="form__input"
       onChange={evt => {
@@ -66,6 +75,6 @@ let make = (~onReceived) => {
         ();
       }}
     />
-    <input type_="submit" value="Get Words!" />
   </form>;
+  // <input type_="submit" value="Get Words!" />
 };

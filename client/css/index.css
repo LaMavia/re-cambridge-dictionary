@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+:root {
+  --form-h: 10vh;
+  --form-thin-w: calc(var(--form-h) * 3 / 5);
+}
+
+.form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: calc(var(--form-h) / 5);
+  background-color: #292929;
+  display: flex;
+  height: 10vh;
+}
+.form__input {
+  appearance: none;
+  border: none;
+  font-size: calc(var(--form-h) / 4.5);
+  width: calc(100% - var(--form-thin-w) - var(--form-h) / 15);
+  padding: 2%;
+}
+.form__input--thin {
+  width: var(--form-thin-w);
+  text-align: center;
+  color: #ffffff;
+  background-color: #d0a44c;
+}
+
+:root {
+  --words-padding: 4vh;
+}
+
+.words {
+  width: 100vw;
+  margin-top: var(--form-h);
+  padding: var(--words-padding);
+  font-family: "Open Sans", sans-serif;
+}
+.words__item {
+  --p: calc(var(--words-padding) / 2);
+  height: auto;
+  display: flex;
+  flex-flow: column;
+  color: #535353;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.17);
+  padding: 0 var(--p);
+}
+.words__item__word {
+  font-size: 5rem;
+  text-transform: capitalize;
+  font-weight: 300;
+  margin-bottom: 10px;
+  appearance: none;
+  font-weight: normal;
+}
+.words__item__defs {
+  list-style: none;
+}
+.words__item__defs__item {
+  margin-bottom: var(--words-padding);
+}
+.words__item__defs__item__def {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: calc(var(--words-padding) / 4);
+}
+.words__item__defs__item__eg {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 100;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/*# sourceMappingURL=index.css.map */
