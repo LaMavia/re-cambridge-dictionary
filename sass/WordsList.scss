@@ -16,6 +16,7 @@
     color: #535353;
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.17);
     padding: 0 var(--p);
+    margin-bottom: var(--words-padding);
 
     &__word {
       font-size: 6rem;
