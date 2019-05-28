@@ -31,13 +31,13 @@
       &__item {
         margin-bottom: var(--words-padding);
         &__def {
-          font-size: 2rem;
+          font-size: 3.5rem;
           font-weight: 300;
           margin-bottom: calc(var(--words-padding) / 4);
         }
 
         &__eg {
-          font-size: 1rem;
+          font-size: 2.5rem;
           font-style: italic;
           font-weight: 100;
         }
