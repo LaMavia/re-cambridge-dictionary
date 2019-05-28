@@ -68,4 +68,5 @@ m.get(
     })
 )
 
-m.listen(8080)
+// @ts-ignore
+m.listen(process.env.PORT || 8080)
