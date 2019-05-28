@@ -29,7 +29,7 @@
 }
 
 :root {
-  --words-padding: 4vh;
+  --words-padding: 3vh;
 }
 
 .words {
@@ -48,7 +48,7 @@
   padding: 0 var(--p);
 }
 .words__item__word {
-  font-size: 5rem;
+  font-size: 6rem;
   text-transform: capitalize;
   font-weight: 300;
   margin-bottom: 10px;
@@ -62,12 +62,12 @@
   margin-bottom: var(--words-padding);
 }
 .words__item__defs__item__def {
-  font-size: 2rem;
+  font-size: 5rem;
   font-weight: 300;
   margin-bottom: calc(var(--words-padding) / 4);
 }
 .words__item__defs__item__eg {
-  font-size: 1rem;
+  font-size: 4rem;
   font-style: italic;
   font-weight: 100;
 }
