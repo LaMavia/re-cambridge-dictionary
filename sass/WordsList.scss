@@ -8,6 +8,19 @@
   padding: var(--words-padding);
   font-family: 'Open Sans', sans-serif;
 
+  &:empty {
+    height: 100vh;
+    position: relative;
+    &::before {
+      content: "Why am I empty?";
+      position: absolute;
+      width: 100%;
+      left: calc(var(--words-padding) * -.5);
+      white-space: pre-wrap;
+      text-align: center;
+    }
+  }
+
   &__item {
     --p: calc(var(--words-padding) / 2);
     height: auto;
