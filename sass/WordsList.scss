@@ -22,12 +22,12 @@
   }
 
   &__item {
-    --p: 10px;
+    --p: 15px;
     height: auto;
     display: flex;
     flex-flow: column;
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.17);
-    padding: 0 var(--p);
+    padding: calc(var(--p) / 2) var(--p) 0 var(--p);
     margin-bottom: var(--words-padding);
     background-color: #ffffff;
     color: #3f3f3f;
@@ -48,7 +48,10 @@
         &__def {
           font-size: 1.35rem;
           font-weight: 400;
-          margin-bottom: calc(var(--words-padding) / 2);
+
+          &:not(:last-of-type) {
+            margin-bottom: calc(var(--words-padding) / 2);
+          }
         }
 
         &__eg {
