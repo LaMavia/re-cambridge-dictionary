@@ -17,9 +17,10 @@
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.17);
     padding: 0 var(--p);
     margin-bottom: var(--words-padding);
+    background-color: #ffffff;
 
     &__word {
-      font-size: 3rem;
+      font-size: 2.75rem;
       text-transform: capitalize;
       font-weight: 300;
       margin-bottom: 10px;

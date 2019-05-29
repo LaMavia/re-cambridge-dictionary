@@ -1,5 +1,5 @@
 :root {
-  --form-h: 100px;
+  --form-h: 80px;
   --form-thin-w: calc(var(--form-h) * 4 / 5);
 }
 .form {
@@ -18,9 +18,9 @@
   &__input {
     appearance: none;
     border: none;
-    font-size: 1.5rem;// calc(var(--form-h) / 5);
+    font-size: calc(var(--form-h) / 4);
     width: calc(100% - var(--form-thin-w) - var(--form-h) / 15);
-    padding: 2%;
+    padding: 4%;
 
     &--thin {
       width: var(--form-thin-w);

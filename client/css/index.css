@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 :root {
-  --form-h: 100px;
+  --form-h: 80px;
   --form-thin-w: calc(var(--form-h) * 4 / 5);
 }
 
@@ -18,9 +18,9 @@
 .form__input {
   appearance: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: calc(var(--form-h) / 4);
   width: calc(100% - var(--form-thin-w) - var(--form-h) / 15);
-  padding: 2%;
+  padding: 4%;
 }
 .form__input--thin {
   width: var(--form-thin-w);
@@ -49,9 +49,10 @@
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.17);
   padding: 0 var(--p);
   margin-bottom: var(--words-padding);
+  background-color: #ffffff;
 }
 .words__item__word {
-  font-size: 3rem;
+  font-size: 2.75rem;
   text-transform: capitalize;
   font-weight: 300;
   margin-bottom: 10px;
@@ -86,10 +87,12 @@ html, body {
   height: auto;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: #f8f9fa;
 }
 
 .main {
   overflow-x: hidden;
+  background-color: inherit;
 }
 
 /*# sourceMappingURL=index.css.map */

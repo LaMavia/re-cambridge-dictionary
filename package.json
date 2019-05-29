@@ -18,7 +18,8 @@
     "sass": "sass --style compressed ./sass/index.scss client/css/index.css",
     "sass:dev": "sass --watch ./sass/index.scss client/css/index.css",
     "dev": "concurrently -k --names \"SERVER,SASS,WEBPACK\" -c \"white,pink,blue\" \"npm run node:dev\" \"npm run sass:dev\" \"npm run server\" ",
-    "start": "node ./server/server.js"
+    "start": "node ./server/server.js",
+    "hpub": "git add -A; git commit -m\"_\"; git push heroku master"
   },
   "keywords": [
     "BuckleScript"
