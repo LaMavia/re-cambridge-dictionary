@@ -27,8 +27,9 @@ m.post(
     new Promise((fuf, rej) => {
       let { query } = u.parse(req.url)
       const limit = +qs.parse(query)['limit']
-      const ws = JSON.parse(Object.keys(req.body)[0]).words
-      // console.dir(ws, { colors: true, depth: 4 })
+      const ws = JSON.parse(Object.keys(req.body)[0]).words.filter(Boolean)
+      if(ws.length === 0) ws.push("emptiness")
+      console.dir(ws, { colors: true, depth: 4 })
       const fetcher = cp.fork('server/fetcher.js')
       fetcher.on('message', ws => {
         send(res, ws)
