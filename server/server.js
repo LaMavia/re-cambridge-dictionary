@@ -16,11 +16,12 @@ m.gate(({ req, res }) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With')
 })
+/*
 const logger = initLogger('Logger', 'italic')
 m.gate(({ req }) => {
   logger(`[${req.method}]> ${req.url} ${req.statusCode}`)
 })
-
+*/
 m.post(
   'api',
   async ({ req, res, supervisor }) =>
@@ -28,7 +29,7 @@ m.post(
       let { query } = u.parse(req.url)
       const limit = +qs.parse(query)['limit']
       const ws = JSON.parse(Object.keys(req.body)[0]).words.filter(Boolean)
-      if(ws.length === 0) ws.push("emptiness")
+      if (ws.length === 0) ws.push('emptiness')
       console.dir(ws, { colors: true, depth: 4 })
       const fetcher = cp.fork('server/fetcher.js')
       fetcher.on('message', ws => {

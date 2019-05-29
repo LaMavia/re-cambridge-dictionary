@@ -20,7 +20,7 @@
     border: none;
     font-size: calc(var(--form-h) / 4);
     width: calc(100% - var(--form-thin-w));
-    padding: 4%;
+    padding: 0 10px;
 
     &--thin {
       width: var(--form-thin-w);

@@ -20,7 +20,7 @@
   border: none;
   font-size: calc(var(--form-h) / 4);
   width: calc(100% - var(--form-thin-w));
-  padding: 4%;
+  padding: 0 10px;
 }
 .form__input--thin {
   width: var(--form-thin-w);
@@ -31,7 +31,7 @@
 }
 
 :root {
-  --words-padding: 20px;
+  --words-padding: 10px;
 }
 
 .words {
@@ -53,7 +53,7 @@
   text-align: center;
 }
 .words__item {
-  --p: calc(var(--words-padding) / 2);
+  --p: 10px;
   height: auto;
   display: flex;
   flex-flow: column;
@@ -64,10 +64,10 @@
   background-color: #ffffff;
 }
 .words__item__word {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   text-transform: capitalize;
   font-weight: 300;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   appearance: none;
   font-weight: normal;
 }
@@ -78,12 +78,12 @@
   margin-bottom: var(--words-padding);
 }
 .words__item__defs__item__def {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 300;
   margin-bottom: calc(var(--words-padding) / 4);
 }
 .words__item__defs__item__eg {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-style: italic;
   font-weight: 100;
 }

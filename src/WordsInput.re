@@ -71,7 +71,7 @@ let make = (~onReceived) => {
       value={state.limit |> string_of_int}
       onChange={evt => {
         evt->ReactEvent.Form.target##value
-        ->(x => setState({...state, limit: x}));
+        ->(x => setState({...state, limit: x > 9 ? 9 : x}));
         ();
       }}
     />
