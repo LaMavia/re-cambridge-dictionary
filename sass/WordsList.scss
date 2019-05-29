@@ -1,5 +1,5 @@
 :root {
-  --words-padding: 40px;
+  --words-padding: 20px;
 }
 
 .words {
@@ -19,7 +19,7 @@
     margin-bottom: var(--words-padding);
 
     &__word {
-      font-size: 6rem;
+      font-size: 3rem;
       text-transform: capitalize;
       font-weight: 300;
       margin-bottom: 10px;
@@ -32,13 +32,13 @@
       &__item {
         margin-bottom: var(--words-padding);
         &__def {
-          font-size: 4rem;
+          font-size: 1.75rem;
           font-weight: 300;
           margin-bottom: calc(var(--words-padding) / 4);
         }
 
         &__eg {
-          font-size: 3.5rem;
+          font-size: 1.25rem;
           font-style: italic;
           font-weight: 100;
         }

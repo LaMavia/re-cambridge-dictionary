@@ -1,6 +1,6 @@
 :root {
-  --form-h: 200px;
-  --form-thin-w: calc(var(--form-h) * 3.5 / 5);
+  --form-h: 100px;
+  --form-thin-w: calc(var(--form-h) * 4 / 5);
 }
 .form {
   position: fixed;
@@ -8,16 +8,17 @@
   left: 0;
   right: 0;
 
-  padding: 30px;
+  padding: 10px;
   background-color: rgb(41, 41, 41);
 
   display: flex;
   height: var(--form-h);
+  width: 100vw;
 
   &__input {
     appearance: none;
     border: none;
-    font-size: calc(var(--form-h) / 4.5);
+    font-size: 1.5rem;// calc(var(--form-h) / 5);
     width: calc(100% - var(--form-thin-w) - var(--form-h) / 15);
     padding: 2%;
 
@@ -26,6 +27,7 @@
       text-align: center;
       color: #ffffff;
       background-color: #d0a44c;
+      padding: 0;
     }
   }
 }
