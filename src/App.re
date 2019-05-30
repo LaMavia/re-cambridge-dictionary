@@ -1,7 +1,7 @@
 open Helpers;
 
 [@react.component]
-let make = () => {
+let make = (~initialWords: string) => {
   let (list: array(word), setList) =
     Helpers.useState([|
       {
@@ -20,7 +20,7 @@ let make = () => {
     |]);
   let onReceived = (words: array(word)) => words |> setList;
   <section className="main">
-    <WordsInput onReceived />
+    <WordsInput initialWords onReceived />
     <WordsList words=list />
   </section>;
 };

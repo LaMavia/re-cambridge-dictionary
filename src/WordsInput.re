@@ -33,11 +33,13 @@ let fetchWords =
 };
 
 [@react.component]
-let make = (~onReceived) => {
-  let (state, setState) = Helpers.useState({limit: 1, inpt: ""});
+let make = (~onReceived, ~initialWords: string) => {
+  let (state, setState) = Helpers.useState({limit: 1, inpt: initialWords});
+  // [%debugger];
   let onSubmit: Helpers.formListener =
     evt => {
       evt |> ReactEvent.Form.preventDefault;
+      // [%debugger]
       state |> fetchWords(onReceived);
       ();
     };
@@ -47,6 +49,7 @@ let make = (~onReceived) => {
     onSubmit
     onKeyUp={evt => {
       if (evt |> ReactEvent.Keyboard.keyCode == 13) {
+        Helpers.setUrl("/?words=" ++ state.inpt);
         state |> fetchWords(onReceived);
         ();
       };
@@ -76,5 +79,4 @@ let make = (~onReceived) => {
       }}
     />
   </form>;
-  // <input type_="submit" value="Get Words!" />
 };

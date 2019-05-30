@@ -12,6 +12,11 @@ type word = {
 
 [@bs.val] [@bs.scope ("window", "location")] external port: string = "";
 [@bs.val] [@bs.scope ("window", "location")] external origin: string = "";
+[@bs.val] [@bs.scope ("window", "location")] external href: string = "";
+
+let setUrl: (string) => unit = [%bs.raw {|x => history.pushState(null, null, x)|}];
+
+[@bs.val][@bs.scope ("window", "history")] external pushState: (unit, unit, string) => unit = "";
 
 let parseWordDef = json =>
   Json.Decode.{

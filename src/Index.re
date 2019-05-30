@@ -1,8 +1,5 @@
-type q = {
-  ws: array(string),
-  limit: int
-};
-let q = [%bs.raw {|
+let ws = [%bs.raw
+  {|
   (() => {
     let q
     if(/\?(.+)/.test(location.href)) {
@@ -13,12 +10,17 @@ let q = [%bs.raw {|
         return acc
       }, {})
     }
-
-    return {
-      ws: q && q['words'] ? q['words'] : [],
-      limit: q && q['limit'] ? q['limit'] : 1
-    }
-
+    return q && q['words'] ? q['words'] : []
   })()
-|}];
-ReactDOMRe.renderToElementWithId(<App/>, "root");
+|}
+];
+
+let re = [%bs.re "/\?words=([\w,]+)/"];
+
+let words =
+  switch (Helpers.href |> Js.String.match(re)) {
+  | Some(res) => res[1]
+  | None => ""
+  }
+
+ReactDOMRe.renderToElementWithId(<App initialWords=words />, "root");
