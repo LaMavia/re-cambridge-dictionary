@@ -49,7 +49,7 @@ let make = (~onReceived, ~initialWords: string) => {
     onSubmit
     onKeyUp={evt => {
       if (evt |> ReactEvent.Keyboard.keyCode == 13) {
-        Helpers.setUrl("/?words=" ++ state.inpt);
+        Helpers.URL.setUrl("/?words=" ++ state.inpt);
         state |> fetchWords(onReceived);
         ();
       };

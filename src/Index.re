@@ -15,11 +15,11 @@ let ws = [%bs.raw
 |}
 ];
 
-let re = [%bs.re "/\?words=([\w,]+)/"];
+let re = [%bs.re "/\?words=(.+&?)/"];
 
 let words =
-  switch (Helpers.href |> Js.String.match(re)) {
-  | Some(res) => res[1]
+  switch (Helpers.URL.href |> Js.String.match(re)) {
+  | Some(res) => res[1] |> Helpers.URL.decodeURI
   | None => ""
   }
 
