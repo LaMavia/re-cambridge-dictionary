@@ -36,25 +36,23 @@ let fetchWords =
 let make = (~onReceived, ~initialWords: string) => {
   let (state, setState) = Helpers.useState({limit: 1, inpt: initialWords});
   // [%debugger];
-  let onSubmit: Helpers.formListener =
-    evt => {
-      evt |> ReactEvent.Form.preventDefault;
-      // [%debugger]
-      state |> fetchWords(onReceived);
-      ();
-    };
+  let onSubmit = () => {
+    Helpers.URL.setUrl("/?words=" ++ state.inpt);
+    state |> fetchWords(onReceived);
+    ();
+  };
 
   <form
     className="form"
-    onSubmit
-    onKeyUp={evt => {
+    onSubmit={evt => {
+      evt |> ReactEvent.Form.preventDefault;
+      onSubmit();
+    }}
+    onKeyUp={evt =>
       if (evt |> ReactEvent.Keyboard.keyCode == 13) {
-        Helpers.URL.setUrl("/?words=" ++ state.inpt);
-        state |> fetchWords(onReceived);
-        ();
-      };
-      ();
-    }}>
+        onSubmit();
+      }
+    }>
     <input
       className="form__input"
       onChange={evt => {
