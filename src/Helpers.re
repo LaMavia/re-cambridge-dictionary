@@ -21,7 +21,11 @@ module URL = {
   [@bs.val] [@bs.scope ("window", "location")] external href: string = "";
 
   let setUrl: string => unit = [%bs.raw
-    {|x => history.pushState(null, null, x)|}
+    {|x => {
+      const oldUrl = location.href;
+      history.pushState(null, null, x);
+      if(location.href === oldUrl) history.replaceState(null, null, x);
+    }|}
   ];
 
   [@bs.val] external decodeURI: string => string = "";
